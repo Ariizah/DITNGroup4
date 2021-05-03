@@ -1,0 +1,190 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Annual Dinner</title>
+    <link href="../css/homeaboutcontactfooter.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Sacramento&family=Satisfy&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Sacramento&family=Satisfy&family=Yellowtail&display=swap" rel="stylesheet">
+    <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .grid-container{
+      display: grid;
+      max-width: 960px;
+      margin: 0 auto;
+      grid-template-columns: 1fr 1fr ;
+      grid-gap: 100px;
+    }
+
+    .background{
+    height: 100vh;
+    width: 100%;
+    background: url(image/background.jpg) center no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+
+    div .card{
+      width: 430px;
+      height: 580px;
+      border-radius: 6px;
+      background: #fff;
+      background-image: url(image/dinner.jpg);
+      position: absolute;
+      top: 56%;
+      right: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    .title{
+      text-align: center;
+      margin-top: 120px;
+      font-size: 16;
+      color: #c9b572;
+    }
+
+    .title2{
+      text-align: center;
+      margin-top: 20px;
+      font-size: 30px;
+      color: #c9b572;
+      font-family: 'Yellowtail';
+    }
+
+    .title3{
+      text-align: center;
+      margin-top: 30px;
+      font-size: 16px;
+      color: #c9b572;
+    }
+
+    .name{
+      text-align: center;
+      font-size: 30px;
+      color: #c9b572;
+      font-family: 'Yellowtail';
+    }
+    .when{
+      text-align: center;
+      margin-top: -10px;
+      font-size: 16;
+      color: #c9b572;
+    }
+
+    .detail{
+      width: 330px;
+      height: 420px;
+      border-radius: 6px;
+      background: #e2d9dc;
+      position: absolute;
+      top: 56%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      margin-top: -10px;
+      font-size: 16;
+      color: #454545;
+    }
+
+    .here{
+      margin-top: 20px;
+    }
+    footer{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+    <ul class="navigation">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="custom.html">Custom</a></li>
+    </ul>
+
+    <div class="col">
+      <div class="card">
+      <div class="design">
+        <p class="title">YOU ARE CORDIALLY<br> INVITED TO<br><br></p>
+
+          <p class="title2">ANNUAL DINNER</p>
+          <p class="title3">HOSTED BY</p>
+          <br>&<br>
+          <p class="name">
+          <span id="name2">Company name</span><br><br>
+        </p>
+
+        <p class="when">
+          <span id="dates">Date</span><br><br>
+          <span id="times">Time</span> <br><br>
+          <span id="venues">Venue</span><br><br>
+        </p>
+      </div>
+
+    </div>
+
+    </div>
+    <div class="custom">
+      <div class="detail">
+        <p class="here">Customize here!</p><br>
+
+        <label>Company Name:</label><br>
+        <input type="text" id="company" > <br/><br/>
+
+        <label>Date:</label><br>
+        <input type="date" id="date" > <br/><br/>
+
+        <label>Time:</label><br>
+        <input type="time" id="time" > <br/><br/>
+
+        <label>Venue:</label><br>
+        <textarea name="address" rows="4" cols="30" id="venue"></textarea> <br/><br/>
+
+        <button onclick="rememberMe()" id="btn">Change</button>
+        <button onclick="submitbutton();" id="submit">Submit</button>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+
+  function rememberMe(){
+    var company = document.getElementById("company").value;
+    var date = document.getElementById("date").value;
+    var time = document.getElementById("time").value;
+    var venue = document.getElementById("venue").value;
+
+    var mycompany = document.getElementById("name2");
+    mycompany.innerHTML = company;
+
+    var mydate = document.getElementById("dates");
+    mydate.innerHTML = date;
+
+    var mytime = document.getElementById("times");
+    mytime.innerHTML = time;
+
+    var myvenue = document.getElementById("venues");
+    myvenue.innerHTML = venue;
+
+    localStorage.setItem("company", company.value);
+    localStorage.setItem("date", date.value);
+    localStorage.setItem("time", time.value);
+    localStorage.setItem("venue", venue.value);
+  }
+
+  function submitbutton(){
+    window.location.href = "submit.html";
+  }
+
+  </script>
+  <footer>Copyright 2021 by NAH!. All Rights Reserved | Contact Email : NAH_Company@gmail.com</footer>
+  </body>
+</html>

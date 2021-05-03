@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Birthday Greeting</title>
+
+    <link href="../css/homeaboutcontactfooter.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300&family=Patrick+Hand&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+    <style>
+
+    .navigation a{
+      text-decoration: none;
+      display: block;
+      color: white;
+      padding: 1em;
+      font-size: 2em;
+    }
+
+    .navigation{
+      display: flex;
+      list-style: none;
+      margin: 0;
+      flex-flow: row wrap;
+      justify-content: center;
+      background: #9b5223;
+    }
+
+
+    .tempcontainer{
+      width: 430px;
+      height: 580px;
+      border-radius: 6px;
+      border-style: outset;
+      border-width: 10PX;
+      border-color: #c2845c;
+      background: #fff;
+      background-image: url(image/birthday.jpg);
+      position: absolute;
+      top: 56%;
+      right: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    .container{
+      width: 330px;
+      height: 400px;
+      border-radius: 6px;
+      border-style: inset;
+      border-color: #d3d1d2;
+      border-width: 10px;
+      background: #c2845c;
+      position: absolute;
+      top: 56%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      margin-top: -10px;
+      font-size: 16;
+      color: #454545;
+    }
+    *{
+      padding: 0;
+      margin: 0;
+    }
+    .background{
+    height: 100vh;
+    width: 100%;
+    background: url('image/background.jpg') center no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+
+    .title{
+      text-align: center;
+      margin-top: 120px;
+      color: #454545;
+      font-family: 'Patrick Hand', cursive;
+      font-size: 28px;
+      font-weight: bold;
+
+    }
+
+    .name{
+      text-align: center;
+      margin-top: 35px;
+      font-size: 24px;
+      color: #454545;
+      font-family: 'Courgette';
+
+    }
+    .eventdate{
+      text-align: center;
+      margin-top: 90px;
+      font-size: 16px;
+      color: #454545;
+      font-family: arial;
+      font-variant-caps: all-small-caps;
+    }
+
+    footer{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    </style>
+  </head>
+  <body>
+
+    <div class="background">
+      <ul class="navigation">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="custom.html">Custom</a></li>
+
+      
+      </ul>
+
+      <div class="tempcontainer">
+        <div class="card">
+        <div class="design">
+          <div class="title">COME CELEBRATE WITH <br> US FOR <br><br></div>
+          <div class="name">
+            <div id="bdayperson">Birthday person Name </div>
+            <div id="ages">#th Birthday Party</div>
+
+            </div>
+
+          </div>
+
+          <div class="eventdate">
+            <div id="dates">Date | Time</div>
+            <div id="times"></div>
+            <div id="venues">Venue</div><br>
+          </div>
+        </div>
+        </div>
+    </div>
+    <div class="container">
+
+      <h3>Customize Here!</h3><br>
+
+      <label>Birthday Person Name:</label> <br>
+      <input type="text" id="bpname"> </br></br>
+
+      <label for="age">Age:</label> <br>
+      <input type="number" id="age"> </br></br>
+
+      <label for="date">Date:</label><br>
+      <input type="date" id="date" > <br/><br/>
+
+      <label for="time">Time:</label><br>
+      <input type="time" id="time" > <br/><br/>
+
+      <label for="venue">Venue:</label><br>
+      <textarea name="address" rows="4" cols="30" id="venue"></textarea> <br/><br/>
+
+      <button onclick="rememberMe()" id="button">Save</button>
+      <button onclick="submitbutton();" id="submit">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    function rememberMe(){
+      var bpname = document.getElementById("bpname").value;
+      var age = document.getElementById("age").value;
+      var date = document.getElementById("date").value;
+      var time = document.getElementById("time").value;
+      var venue = document.getElementById("venue").value;
+
+      var output = document.getElementById("bdayperson");
+      output.innerHTML = bpname + "'s";
+
+      var output2 = document.getElementById("ages");
+      output2.innerHTML = age + "th Birthday party";
+
+      var output3 = document.getElementById("dates");
+      output3.innerHTML = "on: " + date + " | " + time;
+
+
+      var output5 = document.getElementById("venues");
+      output5.innerHTML = "at: " + venue;
+
+      localStorage.setItem("bdayperson", bpname.value);
+      localStorage.setItem("ages", age.value);
+    }
+
+    function submitbutton(){
+      window.location.href = "submit.html";
+
+    }
+
+  </script>
+
+<footer>Copyright 2021 by NAH!. All Rights Reserved | Contact Email : NAH_Company@gmail.com</footer>
+  </body>
+</html>

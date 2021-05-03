@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Custom</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,200&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@1,200;1,400&display=swap" rel="stylesheet">
+    <link href="../css/homeaboutcontactfooter.css" rel="stylesheet" />
+    <style media="screen">
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .grid-container{
+      display: grid;
+      max-width: 960px;
+      margin: 0 auto;
+      grid-template-columns: 1fr 1fr ;
+      grid-gap: 100px;
+    }
+
+    .background{
+    height: 100vh;
+    width: 100%;
+    background: url(image/background.jpg) center no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+
+
+        #canvas {
+          width: 538px;
+          height: 538px;
+          border: 1px solid black;
+          margin-left: 200px;
+          margin-top: 40px;
+        }
+
+        .custom{
+          width: 350px;
+          height: 440px;
+          border-radius: 6px;
+          border-color: black;
+          border-style: solid;
+          background: white;
+          position: absolute;
+          top: 56%;
+          left: 70%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          margin-top: 10px;
+          font-size: 16;
+          color: #454545;
+        }
+
+        #div1{
+          margin-top: 110px;
+          margin-left: 125px;
+          width: 300px;
+          height:100px;
+          border: 2px dotted black;
+        }
+
+        #div2 {
+     float: left;
+     width: 300px;
+     height: 100px;
+     margin: 10px;
+     padding: 10px;
+     border: 1px solid black;
+   }
+   .from{
+     text-align: center;
+     margin-top: 10px;
+     font-size: 30px;
+     font-family: 'Source Sans Pro';
+   }
+   #froms{
+     font-size: 40px;
+   }
+   .inside{
+     text-align: center;
+     margin-top: 50px;
+   }
+
+   .selection{
+     margin-top: 10px;
+   }
+   footer{
+     position: fixed;
+     bottom: 0;
+     width: 100%;
+   }
+    </style>
+  </head>
+  <body>
+    <div class="background">
+    <ul class="navigation">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="custom.html">Custom</a></li>
+    </ul>
+    <div id="canvas">
+      <div id="div1" ondrop="drop(event)" ondragover="allowDrop(event)">
+      </div><br>
+      <div>
+
+            <p class="from">From</p>
+                <p class="inside">
+                  <span id="froms">From who</span><br><br>
+                </p>
+      </div>
+    </div>
+    <div class=custom>
+          <br>
+          <p>Please select your background: </p>
+
+    <select onchange="changer(this.value)" class="selection">
+      <option value="0">Select Background</option>
+      <option value="1">One</option>
+      <option value="2">Two</option>
+      </select>
+      <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="image/congrats.jpg" draggable="true" ondragstart="drag(event)" id="drag1" width="300" height="100">
+      </div>
+      <div id="div2" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <img src="image/congrats2.jpg" draggable="true" ondragstart="drag(event)" id="drag2" width="300" height="100">
+      </div><br>
+
+      <label>From:</label><br>
+      <input type="text" id="fromwho" > <br/><br/>
+
+      <button onclick="rememberMe()" id="btn">Change</button>
+</div>
+
+
+
+</div>
+      <script type="text/javascript">
+      function allowDrop(ev) {
+      ev.preventDefault();
+      }
+
+      function drag(ev) {
+      ev.dataTransfer.setData("text", ev.target.id);
+      }
+
+      function drop(ev) {
+      ev.preventDefault();
+      var data = ev.dataTransfer.getData("text");
+      ev.target.appendChild(document.getElementById(data));
+      }
+
+        function changer(value){
+          var canvas = document.getElementById("canvas");
+          if (value==1){
+            canvas.style.backgroundImage="url(image/customcard.jpg)";
+          }
+          else if (value==2){
+            canvas.style.backgroundImage="url(image/customcard2.jpg)";
+          }
+        }
+        function rememberMe(){
+          var from = document.getElementById("fromwho").value;
+
+          var myfrom = document.getElementById("froms");
+          myfrom.innerHTML = from;
+
+          localStorage.setItem("fromwho", fromwho.value);
+        }
+      </script>
+      <footer>Copyright 2021 by NAH!. All Rights Reserved | Contact Email : NAH_Company@gmail.com</footer>
+  </body>
+</html>

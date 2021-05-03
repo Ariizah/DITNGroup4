@@ -1,0 +1,43 @@
+.navigation{
+  display: flex;
+  list-style: none;
+  margin-top: 0;
+  margin-left: 0;
+  width: 100%;
+  padding: 0 0 0 0;
+  flex-flow: row wrap;
+  justify-content: center;
+  background: #112A46;
+}
+
+.navigation a{
+  text-decoration: none;
+  display: block;
+  color: #ACC8E5;
+  padding: 1em;
+  font-size: 2em;
+}
+
+.corpNav{
+  padding-right: 20px;
+}
+
+@media all and (max-width: 800px){
+  .navigation{
+    justify-content: space-between;
+  }
+}
+
+@media all and (max-width: 600px){
+  .navigation{
+    flex-flow: column wrap;
+    padding:0;
+  }
+}
+
+footer{
+  background-color: #eaeff2;
+  color: #112A46;
+  text-align: center;
+  position: fixed;
+}

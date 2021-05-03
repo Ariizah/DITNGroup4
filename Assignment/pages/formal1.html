@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Wedding</title>
+    <link href="../css/homeaboutcontactfooter.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&family=Great+Vibes&family=Marck+Script&family=Pacifico&family=Parisienne&family=Sacramento&family=Satisfy&family=Yellowtail&display=swap" rel="stylesheet">
+    <style>
+    *{
+      margin: 0;
+      padding: 0;
+    }
+    .grid-container{
+      display: grid;
+      max-width: 960px;
+      margin: 0 auto;
+      grid-template-columns: 1fr 1fr ;
+      grid-gap: 100px;
+    }
+
+    .background{
+    height: 100vh;
+    width: 100%;
+    background: url(image/background.jpg) center no-repeat;
+    background-position: center;
+    background-size: cover;
+    }
+
+    div .card{
+      width: 430px;
+      height: 580px;
+      border-radius: 6px;
+      background: #fff;
+      background-image: url(image/wed.jpg);
+      position: absolute;
+      top: 56%;
+      right: 40%;
+      transform: translate(-50%, -50%);
+    }
+
+    .title{
+      text-align: center;
+      margin-top: 130px;
+      font-size: 16;
+      color: #6a6456;
+
+    }
+    .name{
+      text-align: center;
+      margin-top: 2px;
+      font-size: 30px;
+      color: #b8817c;
+      font-family: 'Courgette';
+    }
+    .weddingdate{
+      text-align: center;
+      margin-top: -10px;
+      font-size: 16;
+      color: #6a6456;
+    }
+
+    .detail{
+      width: 330px;
+      height: 450px;
+      border-radius: 6px;
+      background: #e2d9dc;
+      position: absolute;
+      top: 56%;
+      left: 70%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      margin-top: -10px;
+      font-size: 16;
+      color: #454545;
+    }
+
+    .here{
+      margin-top: 20px;
+    }
+    footer{
+      position: fixed;
+      bottom: 0;
+      width: 100%;
+    }
+    </style>
+
+
+  </head>
+
+  <body>
+    <div class="background">
+    <ul class="navigation">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="custom.html">Custom</a></li>
+    </ul>
+
+    <div class="col">
+      <div class="card">
+      <div class="design">
+        <p class="title">JOYFULLY INVITE YOU<br> TO THE WEDDING OF<br><br></p>
+        <p class="name">
+          <span id="name1">Groom's Name</span>
+          <br>&<br>
+
+          <span id="name2">Bride's Name</span><br><br>
+        </p>
+
+        <p class="weddingdate">
+          <span id="dates">Date</span><br><br>
+          <span id="times">Time</span> <br><br>
+          <span id="venues">Venue</span><br><br>
+        </p>
+      </div>
+
+
+    </div>
+
+    </div>
+    <div class="custom">
+      <div class="detail">
+        <p class="here">Customize here!</p><br>
+        <label>Groom:</label><br>
+        <input type="text" id="groom" > <br/><br/>
+
+        <label>Bride:</label><br>
+        <input type="text" id="bride" > <br/><br/>
+
+        <label>Date:</label><br>
+        <input type="date" id="date" > <br/><br/>
+
+        <label>Time:</label><br>
+        <input type="time" id="time" > <br/><br/>
+
+        <label>Venue:</label><br>
+        <textarea name="address" rows="4" cols="30" id="venue"></textarea> <br/><br/>
+
+        <button onclick="rememberMe()" id="btn">Change</button>
+        <button onclick="submitbutton();" id="submit">Submit</button>
+      </div>
+    </div>
+
+  </div>
+
+    <script>
+      function rememberMe(){
+        var groom = document.getElementById("groom").value;
+        var bride = document.getElementById("bride").value;
+        var date = document.getElementById("date").value;
+        var time = document.getElementById("time").value;
+        var venue = document.getElementById("venue").value;
+
+        var mygroom = document.getElementById("name1");
+        mygroom.innerHTML = groom;
+
+        var mybride = document.getElementById("name2");
+        mybride.innerHTML = bride;
+
+        var mydate = document.getElementById("dates");
+        mydate.innerHTML = date;
+
+        var mytime = document.getElementById("times");
+        mytime.innerHTML = time;
+
+        var myvenue = document.getElementById("venues");
+        myvenue.innerHTML = venue;
+
+        localStorage.setItem("groom", groom.value);
+  			localStorage.setItem("bride", bride.value);
+        localStorage.setItem("date", date.value);
+        localStorage.setItem("time", time.value);
+        localStorage.setItem("venue", venue.value);
+      }
+      function submitbutton(){
+        window.location.href = "submit.html";
+      }
+    </script>
+    <footer>Copyright 2021 by NAH!. All Rights Reserved | Contact Email : NAH_Company@gmail.com</footer>
+  </body>
+</html>

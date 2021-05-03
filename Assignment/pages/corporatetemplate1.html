@@ -1,0 +1,212 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title> Holiday Card E-card </title>
+    <link href="../css/homeaboutcontactfooter.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Libre+Baskerville&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link href="https://fonts.googleapis.com/css2?family=Hammersmith+One&family=Lato:wght@300&family=Libre+Baskerville&family=Montserrat:wght@300&display=swap" rel="stylesheet">
+
+<style media="screen">
+*{
+  margin: 0;
+  padding: 0;
+}
+.grid-container{
+  display: grid;
+  max-width: 960px;
+  margin: 0 auto;
+  grid-template-columns: 1fr 1fr ;
+  grid-gap: 100px;
+}
+
+.background{
+height: 100vh;
+width: 100%;
+background: url(image/background.jpg) center no-repeat;
+background-position: center;
+background-size: cover;
+}
+
+div .card{
+  width: 665px;
+  height: 360px;
+  border-radius: 6px;
+  background-image: url(image/hht.jpg);
+  position: absolute;
+  top: 38%;
+  right: 40%;
+  transform: translate(-20%, -10%);
+}
+
+.title{
+  text-align: center;
+  margin-top: 140px;
+  font-size: 50px;
+  color: #c9b572;
+  font-family:  'Hammersmith One', sans-serif;
+
+}
+
+.rname {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: bolder;
+
+
+}
+.wishes {
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color: #ffffff;
+  font-size: 15px;
+  margin-top: 5px;
+}
+.corporate {
+  text-transform: capitalize;
+  text-align: center;
+  font-family: 'Lato', sans-serif;
+  color: #c9b572;
+  font-size: 17px;
+  margin-top: 35px;
+  font-weight: bolder;
+}
+
+.detail{
+  width: 330px;
+  height: 420px;
+  border-radius: 6px;
+  background: #e2d9dc;
+  position: absolute;
+  top: 56%;
+  left: 70%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+  margin-top: -10px;
+  font-size: 16;
+  color: #454545;
+}
+
+.customised{
+  margin-top: 20px;
+}
+footer{
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+</style>
+  </head>
+
+  <body>
+    <div class="background">
+    <ul class="navigation">
+      <li><a href="../index.html">Home</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="custom.html">Custom</a></li>
+
+    </ul>
+    <div class="col">
+      <div class="card">
+        <div class="design">
+          <p class="title">
+            <span id="g82">HAPPY HOLIDAYS!</span><br>
+          </p>
+
+
+          <p class="rname">
+              <span id="rn">Recipient Name, </span><br>
+          </p>
+
+          <p class="wishes">
+            <span id="cw">We wish you, your family and friends a Joyous holiday
+          </p>
+
+          <p class="corporate">
+            <span id="cn">Corparate Name</span><br>
+          </p>
+
+
+
+      </div>
+
+    </div>
+
+          <div class="box">
+            <div class="detail">
+              <p class="customised">
+                Customize here!
+              </p>
+              <br>
+
+              <label> Choose a greeting: </label>
+              <select name="Greeting" id= "greeting">
+                <option value=" HAPPY HOLIDAYS! "> HAPPY HOLIDAYS! </option>
+                <option value=" IT'S HOLIDAY SEASONS!"> IT'S HOLIDAY SEASONS! </option>
+                <option value=" SEASON GREETINGS!  "> SEASON GREETINGS! </option>
+                <option value=" WONDERFUL HOLIDAY CELEBRATIONS! "> WONDERFUL HOLIDAY CELEBRATIONS! </option>
+              </select>
+              <br>
+              <br>
+
+
+
+              <label>  Recipient Name: </label> <br>
+              <input type="text" name="Recipient Name" id="recipient">
+              <br>
+              <br>
+
+              <label> Company's wishes:  </label> <br>
+              <textarea name="wishes" rows="5" cols="30" id="wishes"></textarea>
+              <br>
+              <br>
+
+              <label>   Company Name:   </label> <br>
+              <input type="text"  id="companyname">
+              <br>
+              <br>
+
+              <button type="button" name="button" onclick="rememberMe()" id="btn">
+
+                change
+              </button>
+              <button onclick="submitbutton();" id="submit">Submit</button>
+            </div>
+          </div>
+    </div>
+          <script type="text/javascript">
+
+            function rememberMe() {
+              var greeting = document.getElementById("greeting").value;
+              var recipients = document.getElementById("recipient").value;
+              var corwishes = document.getElementById("wishes").value;
+              var corporatename = document.getElementById("companyname").value;
+
+              var greet = document.getElementById("g82");
+              greet.innerHTML = greeting;
+
+              var receivers = document.getElementById("rn");
+              receivers.innerHTML = recipients;
+
+              var wish = document.getElementById("cw");
+              wish.innerHTML = corwishes;
+
+              var corname = document.getElementById("cn");
+              corname.innerHTML = corporatename;
+
+              localStorage.setItem("g82", greeting.value);
+                localStorage.setItem("rn", recipient.value);
+                  localStorage.setItem("cw", wishes.value);
+                  localStorage.setItem("cn", company.value);
+            }
+            function submitbutton(){
+              window.location.href = "submit.html";
+            }
+          </script>
+          <footer> Copyright 2021 by NAH!. All Rights Reserved | Contact Email : NAH_Company@gmail.com</footer>
+  </body>
+</html>

@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Raya Invitation</title>
+
+      <link href="../css/homeaboutcontactfooter.css" rel="stylesheet" />
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Inria+Serif:wght@300&family=Patrick+Hand&display=swap" rel="stylesheet">
+      <link rel="preconnect" href="https://fonts.gstatic.com">
+      <link href="https://fonts.googleapis.com/css2?family=Courgette&family=Dancing+Script&family=Great+Vibes&family=Pacifico&family=Satisfy&display=swap" rel="stylesheet">
+      <style>
+
+
+
+      .navigation a{
+        text-decoration: none;
+        display: block;
+        color: #cbba72;
+        padding: 1em;
+        font-size: 2em;
+      }
+
+      .navigation{
+        display: flex;
+        list-style: none;
+        margin: 0;
+        flex-flow: row wrap;
+        justify-content: center;
+        background: #11814f;
+      }
+
+      .tempcontainer{
+        width: 430px;
+        height: 580px;
+        border-radius: 6px;
+        border-style: inset;
+        border-width: 10px;
+        border-color: #d3d1d2;
+        background: #fff;
+        background-image: url(image/hariraya.jpg);
+        position: absolute;
+        top: 56%;
+        right: 40%;
+        transform: translate(-50%, -50%);
+      }
+
+        .container{
+          width: 330px;
+          height: 400px;
+          border-radius: 6px;
+          border-style: inset;
+          border-color: #d3d1d2;
+          border-width: 15px;
+          background: #11814f;
+          position: absolute;
+          top: 56%;
+          left: 70%;
+          transform: translate(-50%, -50%);
+          text-align: center;
+          margin-top: -10px;
+          font-size: 16px;
+          color: #cbba72;
+        }
+
+        *{
+          padding: 0;
+          margin: 0;
+        }
+
+        .background{
+        height: 100vh;
+        width: 100%;
+        background: url('image/background.jpg') center no-repeat;
+        background-position: center;
+        background-size: cover;
+        }
+
+        .title{
+          text-align: center;
+          margin-top: 50px;
+          color: #cbba72;
+          font-family: 'Patrick Hand', cursive;
+
+        }
+
+        .name{
+          text-align: center;
+          margin-top: 50px;
+          font-size: 24px;
+          color: #d3d1d2;
+          font-weight: bold;
+          font-family: 'Courgette';
+        }
+        .eventdate{
+          text-align: center;
+          margin-top: 50px;
+          font-size: 16px;
+          color: #cbba72;
+          font-family: arial;
+          font-variant-caps: all-small-caps;
+        }
+
+        footer{
+          position: fixed;
+          bottom: 0;
+          width: 100%;
+        }
+      </style>
+  </head>
+  <body>
+
+    <div class="background">
+      <ul class="navigation">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about.html">About</a></li>
+        <li><a href="custom.html">Custom</a></li>
+
+      </ul>
+
+      <div class="tempcontainer">
+        <div class="card">
+        <div class="design">
+          <h1 class="title">YOU ARE KINDLY<br>INVITED TO<br></h1>
+          <div class="name">
+            <div id="person">Inviter's Name</div><p>OPEN HOUSE</p>
+            <div id="days">On day # <br> Of Raya Celebration</div>
+
+            </div>
+
+          </div>
+
+          <div class="eventdate">
+
+            <div id="dates">Date | Time</div>
+            <div id="times"></div>
+            <div id="venues">Venue</div>
+
+          </div>
+        </div>
+        </div>
+    </div>
+
+    <div class="container">
+
+      <h3>Customize Here!</h3><br>
+
+      <label>Inviter Name:</label> <br>
+      <input type="text" id="iperson"> </br></br>
+
+      <label for="day">Day:</label> <br>
+      <input type="number" id="day"> </br></br>
+
+      <label for="date">Date:</label><br>
+      <input type="date" id="date" > <br/><br/>
+
+      <label for="time">Time:</label><br>
+      <input type="time" id="time" > <br/><br/>
+
+      <label for="venue">Venue:</label><br>
+      <textarea name="address" rows="4" cols="30" id="venue"></textarea> <br/><br/>
+
+      <button onclick="rememberMe()" id="button">Save</button>
+        <button onclick="submitbutton();" id="submit">Submit</button>
+    </div>
+  </div>
+
+  <script>
+    function rememberMe(){
+      var iperson = document.getElementById("iperson").value;
+      var day = document.getElementById("day").value;
+      var date = document.getElementById("date").value;
+      var time = document.getElementById("time").value;
+      var venue = document.getElementById("venue").value;
+
+      var output = document.getElementById("person");
+      output.innerHTML = iperson + "'s";
+
+      var output2 = document.getElementById("days");
+      output2.innerHTML = "On Day " + day + " <br> Of Raya Celebration";
+
+      var output3 = document.getElementById("dates");
+      output3.innerHTML = "ON: " + date + " | " + time;
+
+      var output5 = document.getElementById("venues");
+      output5.innerHTML = "AT: " + venue;
+
+      localStorage.setItem("person", iperson.value);
+      localStorage.setItem("days", day.value);
+    }
+
+    function submitbutton(){
+      window.location.href = "submit.html";
+
+    }
+  </script>
+
+<footer>Copyright 2021 by NAH!. All Rights Reserved | Contact Email : NAH_Company@gmail.com</footer>
+  </body>
+</html>
